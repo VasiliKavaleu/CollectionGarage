@@ -1,0 +1,41 @@
+{% extends 'base1.html' %}
+
+{% block title %} Create a new user {% endblock title %}
+{% block content %}
+	<div class="collapse navbar-collapse" id="navbarmidle">
+		<div class="col text-center">
+			<div class="searchtxt">
+				<h1>CREATE A NEW USER TO SUBSCRIBE TO THE COLLECTION GARAGES MAILING LIST TO RECEIVE UPDATES ON NEW ARRIVALS</h1>
+			</div>
+		</div>
+	<form method="POST" action="{% url 'create' %}">
+		{% csrf_token %}
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="form-group col-md-3 mx-auto">
+				<label  for="email" style="color:white">Email</label>
+				{{form.email}}
+			</div>
+			<div class="col-md-1"></div>
+			<div class="form-group col-md-3 mx-auto" style="background:transparent">
+				<label for="city" style="color:white">CITY</label>
+				{{form.city}}
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="form-group col-md-3 mx-auto">
+				<label  for="password" style="color:white">Password</label>
+				{{form.password}}
+			</div>
+			<div class="col-md-1"></div>
+			<div class="form-group col-md-3 mx-auto" style="background:transparent">
+				<label for="carModel" style="color:white">CAR BRAND</label>
+				{{form.carModel}}
+			</div>
+			<div class="col-md-1"></div>
+            <button type="submit" class="btn btn-primary mb-2" style="margin-top:22px;">Submit</button>
+		</div>
+	</form>
+{% endblock content%}

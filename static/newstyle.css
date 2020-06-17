@@ -1,0 +1,65 @@
+
+ul#navbarontop {
+    float: right;
+}
+
+.form-control:focus {
+	background-color: transparent;
+}
+
+.form-control {
+    background-color: transparent;
+    border: 1.3px solid white;
+}
+
+
+.form-control:hover {
+    border: 1.6px solid #696969;
+    box-shadow: 0 0 20px 0px #696969;
+}
+
+
+button.btn.btn-primary.mb-2:hover {
+    box-shadow: 0 0 20px 0px #696969;
+
+}
+
+button.btn.btn-primary.mb-2 {
+    background-color: #696969;
+    border: 2px solid #696969;
+}
+
+.autoblock:hover {
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+button.btn.btn-primary.mb-2 {
+    width: 96px;
+}
+
+.allcontain {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    background-color: white;
+}
+
+body {
+	background-color: #e7e7e7;
+}
+
+h4.subm {
+    width: 400px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+li.msg {
+    list-style-type: none;
+}
+
+.err {
+    color: #8B4513;
+}
+
+.scs {
+    color: #2E8B57;
+}
