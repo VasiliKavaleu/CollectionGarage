@@ -1,24 +1,27 @@
 from bs4 import BeautifulSoup
 import requests
 
+
 headers = {
 		'accept':'*/*','user-agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36'
 		}
 
 def av(url):
+	"""Getting info through scraping av.by"""
 	#url = 'https://cars.av.by/seat/ibiza'
 	session = requests.Session()
 	info = []
 	links = [url]
+	errors = []
 
-	req = session.get(url = url, headers=headers)
+	req = session.get(url=url, headers=headers)
 	if req.status_code == 200:
 		content = BeautifulSoup(req.content, "lxml")
 		next = content.select_one('a.pages-arrows-link')
 		while next.text == 'Следующая страница →':
 			url = next.get('href')
 			links.append(url)
-			req = session.get(url = url, headers=headers)
+			req = session.get(url=url, headers=headers)
 			if req.status_code == 200:
 				content = BeautifulSoup(req.content, "lxml")
 				next = content.select('a.pages-arrows-link')
@@ -26,9 +29,15 @@ def av(url):
 					next = next[1]
 				else:
 					next = next[0]
+			else:
+				errors.append({'url': url,
+							   'title': 'Page did not response'})
+	else:
+		errors.append({'url':url,
+					   'title':'Page did not response'})
 
 	for link in links:
-		req = session.get(url = link, headers=headers)
+		req = session.get(url=link, headers=headers)
 		if req.status_code == 200:
 			content = BeautifulSoup(req.content, "lxml")
 			mainBlock = content.select('div.listing-wrap')

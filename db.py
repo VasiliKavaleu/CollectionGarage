@@ -25,7 +25,7 @@ else:
     cur = conn.cursor()
     cur.execute("""SELECT city_id, "carModel_id" FROM subscribers_subscriber WHERE is_activ=%s;""", (True,))
     cities_qs = cur.fetchall()
-    todo_list = { i[0]:set() for i in cities_qs}
+    todo_list = {i[0]: set() for i in cities_qs}
     for i in cities_qs:
         todo_list[i[0]].add(i[1])
     cur.execute("""SELECT * FROM "findApp_site";""")

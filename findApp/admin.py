@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from .models import City, Auto, CarModel, Site, Url
+from .models import City, Auto, CarModel, Site, Url, Error
 
 class AutoAdmin(admin.ModelAdmin):
     class Meta:
@@ -13,3 +13,4 @@ admin.site.register(Auto, AutoAdmin)
 admin.site.register(CarModel)
 admin.site.register(Site)
 admin.site.register(Url)
+admin.site.register(Error)

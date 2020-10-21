@@ -7,9 +7,10 @@ import datetime
 from findApp.forms import FindAutoForm
 from findApp import helpers
 
+
 def index(request):
     form = FindAutoForm
-    return render(request, 'index1.html', {'form' : form})
+    return render(request, 'index1.html', {'form': form})
 
 def list_auto(request):
     today = datetime.date.today()

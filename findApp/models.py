@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.postgres.fields import JSONField
+
 
 class City(models.Model):
     '''Город'''
@@ -58,3 +60,16 @@ class Auto(models.Model):
     class Meta:
         verbose_name = "Авто"
         verbose_name_plural = "Автомобили"
+
+
+class Error(models.Model):
+    data = JSONField()
+    timestamp = models.DateField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Ошибка скрапинга"
+        verbose_name_plural = "Ошибки скрапинга"
+        ordering = ['-timestamp']
+
+    def __str__(self):
+        return self.timestamp.strftime('%Y-%m-%d')
